@@ -79,36 +79,12 @@ button, input, textarea {
   min-height: 100vh;
 }
 
-.matrix-rain {
+.matrix-rain-canvas {
   position: fixed;
-  inset: 0 0 0 272px;
+  inset: 0;
   z-index: 0;
-  overflow: hidden;
   pointer-events: none;
-  opacity: .34;
-  mask-image: linear-gradient(to bottom, black, transparent 72%);
-}
-
-.matrix-rain span {
-  position: absolute;
-  top: -22rem;
-  width: 1ch;
-  overflow-wrap: anywhere;
-  color: #4667bd;
-  font-size: 12px;
-  line-height: 1.2;
-  text-shadow: 0 0 10px #4469ce;
-  animation: matrix-fall linear infinite;
-}
-
-@keyframes matrix-fall {
-  to { transform: translateY(calc(100vh + 36rem)); }
-}
-
-body:has(#reduce-motion:checked) .matrix-rain span,
-body:has(#reduce-motion:checked) .build-ticker div,
-body:has(#reduce-motion:checked) .cursor {
-  animation-play-state: paused;
+  opacity: .55;
 }
 
 .command-sidebar {
@@ -265,7 +241,13 @@ body:has(#contact:target) .nav-contact {
   margin-top: 20px;
 }
 
-.motion-panel label {
+.matrix-controls {
+  display: grid;
+  gap: 12px;
+}
+
+.matrix-switch-row,
+.matrix-range-copy {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -276,28 +258,84 @@ body:has(#contact:target) .nav-contact {
   text-transform: uppercase;
 }
 
-.motion-panel input {
-  width: 32px;
-  height: 14px;
+.matrix-switch {
+  position: relative;
+  width: 36px;
+  height: 16px;
+  padding: 0;
+  border: 0;
+  border-radius: 99px;
+  background: var(--line-bright);
+  cursor: pointer;
+  transition: background .2s ease;
+}
+
+.matrix-switch span {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #d7dcea;
+  transition: transform .2s ease;
+}
+
+.matrix-switch.is-active {
+  background: var(--blue);
+}
+
+.matrix-switch.is-active span {
+  transform: translateX(20px);
+}
+
+.matrix-switch:focus-visible,
+.matrix-range input:focus-visible {
+  outline: 2px solid #b7c5ff;
+  outline-offset: 3px;
+}
+
+.matrix-range {
+  display: block;
+}
+
+.matrix-range-copy {
+  margin-bottom: 5px;
+}
+
+.matrix-range output {
+  color: #c7cbd6;
+  font-variant-numeric: tabular-nums;
+}
+
+.matrix-range input {
+  display: block;
+  width: 100%;
+  height: 3px;
+  margin: 0;
   appearance: none;
   border: 1px solid var(--line-bright);
-  background: #151923;
+  border-radius: 0;
   cursor: pointer;
 }
 
-.motion-panel input::before {
-  display: block;
+.matrix-range input::-webkit-slider-thumb {
   width: 12px;
-  height: 10px;
-  margin: 1px;
-  content: "";
-  background: #cdd2df;
-  transition: transform .2s ease, background .2s ease;
+  height: 12px;
+  appearance: none;
+  border: 0;
+  border-radius: 50%;
+  background: var(--blue);
+  box-shadow: 0 0 9px rgba(107, 140, 255, .55);
 }
 
-.motion-panel input:checked::before {
-  transform: translateX(16px);
+.matrix-range input::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border: 0;
+  border-radius: 50%;
   background: var(--blue);
+  box-shadow: 0 0 9px rgba(107, 140, 255, .55);
 }
 
 .sidebar-actions {
@@ -1006,7 +1044,6 @@ footer {
   .command-sidebar nav a { flex: 0 0 auto; padding: 5px 8px; }
   .system-panel, .motion-panel, .sidebar-actions { display: none; }
 
-  .matrix-rain { left: 0; }
   main { margin-left: 0; padding: 0 16px 70px; }
 
   .hero {

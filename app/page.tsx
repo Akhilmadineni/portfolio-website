@@ -1,3 +1,5 @@
+import { MatrixControls, MatrixRain } from "./matrix-rain";
+
 const experience = [
   {
     company: "Oracle",
@@ -106,13 +108,6 @@ const publications = [
   },
 ];
 
-const rainColumns = [
-  "01T0E1M0P1O", "R3ACT51OCI", "JAVA0KAFKA", "LLM10ROUTE", "ASYNC0FLOW",
-  "TERRAFORM1", "SPRING0ADB", "U0NET0975", "QUEUE1VAULT", "CI0CD1SHIP",
-  "TEMPORAL01", "OCI51REGION", "SPLUNK0LOG", "CAMUNDA101", "AGENT0BUILD",
-  "RETRY1SAFE", "SIGNAL0101", "REACT0JAVA", "EVENT1DRIVE", "ZERO0DOWN",
-];
-
 function Window({
   id,
   index,
@@ -142,20 +137,7 @@ export default function Home() {
     <div className="site-shell">
       <a className="skip-link" href="#main">Skip to content</a>
 
-      <div className="matrix-rain" aria-hidden="true">
-        {rainColumns.map((column, index) => (
-          <span
-            key={`${column}-${index}`}
-            style={{
-              left: `${2 + index * 5}%`,
-              animationDelay: `${(index % 7) * -1.35}s`,
-              animationDuration: `${8 + (index % 6) * 1.8}s`,
-            }}
-          >
-            {column}
-          </span>
-        ))}
-      </div>
+      <MatrixRain />
 
       <aside className="command-sidebar" aria-label="Primary">
         <a className="identity" href="#home" aria-label="Go to home">
@@ -190,10 +172,7 @@ export default function Home() {
 
         <section className="motion-panel" aria-label="Display controls">
           <p className="sidebar-label"><span>matrix</span></p>
-          <label>
-            <span>rain.reduced-motion</span>
-            <input id="reduce-motion" type="checkbox" />
-          </label>
+          <MatrixControls />
         </section>
 
         <div className="sidebar-actions">
