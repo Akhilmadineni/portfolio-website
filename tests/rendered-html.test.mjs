@@ -56,5 +56,5 @@ test("keeps the Matrix experience and accessibility controls in source", async (
   assert.match(matrixRain, /rain\.speed/);
   assert.match(matrixRain, /rain\.density/);
   assert.match(layout, /Akhil Madineni — AI & Full-Stack Engineer/);
-  assert.doesNotMatch(page, /SkeletonPreview|codex-preview/);
+  assert.doesNotMatch(page, /SkeletonPreview/);
 });

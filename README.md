@@ -43,7 +43,6 @@ npm run lint
 
 The production portfolio is hosted on a NAS using `Dockerfile.nas` and
 `compose.nas.yml`, with public HTTPS traffic routed through Cloudflare Tunnel.
-The `.openai/hosting.json` file preserves compatibility with OpenAI Sites.
 
 ## License
 
