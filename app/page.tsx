@@ -201,16 +201,35 @@ export default function Home() {
           <div className="terminal-card" aria-label="Professional status terminal">
             <div className="terminal-top">
               <span><i /><i /><i /></span>
-              <span>akhil@portfolio:~</span>
+              <span>engineering-profile.sh</span>
+              <span className="terminal-live"><i /> available</span>
             </div>
             <div className="terminal-content">
-              <p><b>$</b> whoami</p>
-              <p className="terminal-output">&gt; akhil_madineni - senior software engineer / platform builder</p>
-              <p><b>$</b> current</p>
-              <p className="terminal-output">&gt; senior member of technical staff @ oracle</p>
-              <p><b>$</b> impact --latest</p>
-              <p className="terminal-output">&gt; 51 OCI regions · days → ~2 hours · zero-downtime ops</p>
-              <p className="cursor-line"><b>$</b> <span className="cursor" /></p>
+              <p className="terminal-command"><b>$</b> profile --current</p>
+              <section className="terminal-role" aria-label="Current role">
+                <span>Senior Member of Technical Staff</span>
+                <strong>Oracle · Merino</strong>
+                <small>Temporal-backed CI/CD platform</small>
+              </section>
+
+              <p className="terminal-command"><b>$</b> merino --capabilities</p>
+              <ul className="terminal-capabilities" aria-label="Merino capabilities">
+                <li><span>01</span>Failure recovery and stage retries</li>
+                <li><span>02</span>Resource locking and child workflows</li>
+              </ul>
+
+              <p className="terminal-command"><b>$</b> infrastructure --impact</p>
+              <section className="terminal-impact" aria-label="Infrastructure impact">
+                <strong>days <span>→</span> ~2 hours</strong>
+                <p>Regional OCI provisioning automated with Terraform</p>
+              </section>
+
+              <div className="terminal-focus" aria-label="Engineering focus">
+                <span>Backend systems</span>
+                <span>Temporal</span>
+                <span>OCI</span>
+                <span>Developer platforms</span>
+              </div>
             </div>
           </div>
         </section>

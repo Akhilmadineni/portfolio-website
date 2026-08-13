@@ -37,6 +37,11 @@ test("server-renders the portfolio", async () => {
   assert.match(html, /Temporal-backed CI\/CD platform/);
   assert.match(html, /child-execution stage/);
   assert.match(html, /SDE II opportunity at Amazon/);
+  assert.match(html, /profile --current/);
+  assert.match(html, /merino --capabilities/);
+  assert.match(html, /Failure recovery and stage retries/);
+  assert.match(html, /Regional OCI provisioning automated with Terraform/);
+  assert.doesNotMatch(html, /akhil_madineni - senior software engineer/);
   assert.match(html, /id="experience"/);
   assert.match(html, /id="ai-lab"/);
   assert.match(html, /id="contact"/);

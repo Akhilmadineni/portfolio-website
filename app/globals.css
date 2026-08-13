@@ -467,10 +467,22 @@ main {
 }
 
 .terminal-card {
+  position: relative;
+  overflow: hidden;
   border: 1px solid var(--line-bright);
-  background: rgba(12, 15, 21, .88);
-  box-shadow: 12px 12px 0 rgba(36, 51, 95, .28), 0 22px 80px rgba(0,0,0,.3);
-  backdrop-filter: blur(8px);
+  background:
+    linear-gradient(135deg, rgba(58, 78, 143, .1), transparent 42%),
+    rgba(10, 13, 19, .92);
+  box-shadow: 12px 12px 0 rgba(36, 51, 95, .24), 0 22px 80px rgba(0,0,0,.34);
+  backdrop-filter: blur(12px);
+}
+
+.terminal-card::after {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(0deg, transparent 0 3px, rgba(255,255,255,.012) 4px);
+  content: "";
 }
 
 .terminal-top {
@@ -483,6 +495,8 @@ main {
   background: #141720;
   color: var(--dim);
   font-size: 9px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
 }
 
 .terminal-top i,
@@ -494,9 +508,27 @@ main {
   background: #2b303d;
 }
 
+.terminal-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #8793af;
+}
+
+.terminal-live i {
+  width: 6px;
+  height: 6px;
+  margin: 0;
+  border-radius: 50%;
+  background: #6edaa0;
+  box-shadow: 0 0 10px rgba(110, 218, 160, .6);
+}
+
 .terminal-content {
-  min-height: 286px;
-  padding: 22px 24px;
+  position: relative;
+  z-index: 1;
+  min-height: 360px;
+  padding: 22px 24px 24px;
   color: #bdc3d1;
   font-size: 11px;
 }
@@ -509,25 +541,100 @@ main {
   color: var(--blue);
 }
 
-.terminal-output {
-  color: var(--muted);
+.terminal-command {
+  color: #9099ad;
+  font-size: 10px;
+  letter-spacing: .03em;
 }
 
-.cursor-line {
+.terminal-role {
+  display: grid;
+  gap: 4px;
+  margin: 0 0 20px 14px;
+  padding-left: 13px;
+  border-left: 1px solid #344a8b;
+}
+
+.terminal-role span {
+  color: #aeb7ca;
+  font-family: var(--font-geist-sans), sans-serif;
+  font-size: 12px;
+}
+
+.terminal-role strong {
+  color: #eef2ff;
+  font-family: var(--font-geist-sans), sans-serif;
+  font-size: 17px;
+  letter-spacing: -.02em;
+}
+
+.terminal-role small {
+  color: #6f7990;
+  font-size: 10px;
+}
+
+.terminal-capabilities {
+  display: grid;
+  gap: 6px;
+  margin: 0 0 20px 14px;
+  padding: 0;
+  list-style: none;
+}
+
+.terminal-capabilities li {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+  color: #adb5c8;
+  font-family: var(--font-geist-sans), sans-serif;
+  font-size: 11px;
 }
 
-.cursor {
-  display: inline-block;
-  width: 7px;
-  height: 14px;
-  background: var(--blue);
-  animation: blink 1s steps(1) infinite;
+.terminal-capabilities span {
+  color: #6078c3;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 9px;
 }
 
-@keyframes blink { 50% { opacity: 0; } }
+.terminal-impact {
+  margin: 0 0 20px 14px;
+  padding: 12px 14px;
+  border: 1px solid #28355d;
+  background: rgba(54, 74, 139, .09);
+}
+
+.terminal-impact strong {
+  display: block;
+  color: #e5eaff;
+  font-size: clamp(1.25rem, 2.3vw, 1.75rem);
+  letter-spacing: -.04em;
+}
+
+.terminal-impact strong span { color: #718ce0; }
+
+.terminal-impact p {
+  margin: 5px 0 0;
+  color: #7f899f;
+  font-family: var(--font-geist-sans), sans-serif;
+  font-size: 10px;
+}
+
+.terminal-focus {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-left: 14px;
+}
+
+.terminal-focus span {
+  padding: 4px 7px;
+  border: 1px solid #252e45;
+  background: rgba(18, 23, 34, .72);
+  color: #778198;
+  font-size: 8px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
 
 .content-grid {
   display: grid;
@@ -1084,7 +1191,7 @@ footer {
   }
 
   .hero h1 { font-size: clamp(3.15rem, 17vw, 5.3rem); }
-  .terminal-content { min-height: 255px; padding: 18px; }
+  .terminal-content { min-height: 0; padding: 18px; }
   .content-grid { gap: 24px; }
   .window-body { padding: 24px 18px; }
   .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 1.5rem; }
