@@ -6,12 +6,12 @@ const experience = [
     role: "Senior Member of Technical Staff",
     period: "Jun 2025 - Present",
     summary:
-      "Building Merino, a React and Java CI/CD platform orchestrated with Temporal across OCI.",
+      "Building Merino, a Temporal-backed CI/CD platform that helps engineering teams build and deploy their applications.",
     bullets: [
-      "Implemented lock and unlock stage controls across the React UI, Java backend, and Temporal workflows.",
-      "Automated control-plane and data-plane provisioning across all 51 OCI regions, reducing regional setup from days to about two hours.",
-      "Built retry-safe, queue-driven execution and AI-assisted pull-request, log-checking, and security-ticket automation.",
-      "Delivered zero-downtime ADB password rotation with OCI Functions, Queues, Vault, and auditable telemetry.",
+      "Developed retry capabilities for recovering failed stages and lock/unlock stages for coordinating shared resources.",
+      "Built a child-execution stage that creates and manages a separate Temporal child workflow.",
+      "Helped build Merino's OCI environment end to end, including DNS, VCN networking, load balancers, and OKE clusters and node pools.",
+      "Automated regional infrastructure provisioning with Terraform, reducing setup time from several days to approximately two hours.",
     ],
   },
   {
@@ -29,9 +29,10 @@ const experience = [
     role: "Software Developer 3",
     period: "May 2023 - Dec 2024",
     summary:
-      "Owned delivery of a Splunk Universal Forwarder Generator spanning Angular, Spring Boot, and Camunda.",
+      "Built an internal self-service application that helped engineering teams onboard applications to Splunk using Universal Forwarders.",
     bullets: [
-      "Reduced setup time by 30% and built an EAC access workflow in Go that cut request processing time by 50%.",
+      "Developed the solution end to end—from the Angular interface to Spring Boot services and Camunda workflow orchestration.",
+      "Automated configuration and onboarding, reducing manual effort and cutting setup time by approximately 30%.",
     ],
   },
   {
@@ -189,8 +190,8 @@ export default function Home() {
           <div className="hero-copy">
             <p className="prompt">$ whoami</p>
             <h1 id="hero-title" data-text="AKHIL MADINENI">AKHIL<br />MADINENI</h1>
-            <p className="hero-line">Full-stack engineer building reliable AI, workflow, and cloud systems.</p>
-            <p className="hero-meta">React + Java + Temporal + OCI</p>
+            <p className="hero-line">Software engineer building reliable backend systems, cloud infrastructure, and internal developer platforms.</p>
+            <p className="hero-meta">Java + Temporal + Terraform + OCI</p>
             <div className="hero-actions">
               <a className="button primary" href="#experience">View experience <span>→</span></a>
               <a className="button" href="#contact">Get in touch</a>
@@ -204,7 +205,7 @@ export default function Home() {
             </div>
             <div className="terminal-content">
               <p><b>$</b> whoami</p>
-              <p className="terminal-output">&gt; akhil_madineni - senior engineer / ai systems builder</p>
+              <p className="terminal-output">&gt; akhil_madineni - senior software engineer / platform builder</p>
               <p><b>$</b> current</p>
               <p className="terminal-output">&gt; senior member of technical staff @ oracle</p>
               <p><b>$</b> impact --latest</p>
@@ -215,17 +216,32 @@ export default function Home() {
         </section>
 
         <div className="content-grid">
-          <Window id="about" index="01" title="About">
+          <Window id="about" index="01" title="Tell Me About Yourself">
             <div className="about-grid">
-              <p className="lead">
-                I build enterprise software where <em>distributed workflows, cloud infrastructure, and AI-assisted engineering</em> meet.
-              </p>
-              <div>
+              <div className="about-intro">
+                <p className="prompt">$ tell_me_about_yourself</p>
+                <p className="lead">
+                  Hi, I&apos;m Akhil. I&apos;m a software engineer with about five years of experience building <em>backend systems, cloud infrastructure, and internal developer platforms.</em>
+                </p>
+              </div>
+              <div className="about-story">
                 <p>
-                  My work spans production React and Angular interfaces, Java and Spring services, durable Temporal workflows, and automated OCI infrastructure.
+                  Currently, I&apos;m a Senior Member of Technical Staff at Oracle, where I work on Merino, a Temporal-backed CI/CD platform that helps engineering teams build and deploy their applications. My work spans both application development and infrastructure.
                 </p>
                 <p>
-                  I care about failure-safe execution, observable systems, and turning operational work that once took days into repeatable automation.
+                  On the application side, I&apos;ve developed retry capabilities for recovering failed stages, lock and unlock stages for coordinating shared resources, and a child-execution stage that creates and manages a separate Temporal child workflow.
+                </p>
+                <p>
+                  On the infrastructure side, I helped build Merino&apos;s OCI environment end to end, including DNS configuration, VCN networking, load balancers, and OKE clusters and node pools. I also automated regional infrastructure provisioning with Terraform, reducing setup time from several days to approximately two hours.
+                </p>
+                <p>
+                  Before Oracle, I worked at JPMorgan Chase, where I built an internal self-service application that helped engineering teams onboard applications to Splunk using Universal Forwarders. I developed it end to end—from the Angular interface to Spring Boot services and Camunda workflow orchestration—reducing manual effort and cutting setup time by approximately 30%.
+                </p>
+                <p>
+                  Earlier in my career, I worked on CI/CD, observability, and test-automation platforms at Walmart and Citi. Across these roles, the common theme has been taking complex, manual engineering processes and turning them into reliable, scalable, self-service solutions.
+                </p>
+                <p className="about-goal">
+                  I&apos;m now looking for an opportunity where I can take broader ownership and solve large-scale engineering problems—the kind of work that makes an SDE II opportunity at Amazon particularly interesting to me.
                 </p>
               </div>
             </div>

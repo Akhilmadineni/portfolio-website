@@ -33,6 +33,10 @@ test("server-renders the portfolio", async () => {
   assert.match(html, /AKHIL/);
   assert.match(html, /MADINENI/);
   assert.match(html, /AI \/ Full-Stack Engineer/);
+  assert.match(html, /tell_me_about_yourself/);
+  assert.match(html, /Temporal-backed CI\/CD platform/);
+  assert.match(html, /child-execution stage/);
+  assert.match(html, /SDE II opportunity at Amazon/);
   assert.match(html, /id="experience"/);
   assert.match(html, /id="ai-lab"/);
   assert.match(html, /id="contact"/);

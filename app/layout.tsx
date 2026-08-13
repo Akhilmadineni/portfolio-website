@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Akhil Madineni — AI & Full-Stack Engineer",
   description:
-    "Portfolio of Akhil Madineni, a full-stack software engineer building reliable AI, workflow, and cloud systems with React, Java, Temporal, and OCI.",
+    "Portfolio of Akhil Madineni, a software engineer building backend systems, cloud infrastructure, and internal developer platforms with Java, Temporal, Terraform, and OCI.",
 };
 
 export default function RootLayout({
