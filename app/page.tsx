@@ -198,40 +198,41 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="terminal-card" aria-label="Professional status terminal">
-            <div className="terminal-top">
-              <span><i /><i /><i /></span>
-              <span>engineering-profile.sh</span>
-              <span className="terminal-live"><i /> available</span>
+          <article className="current-work-card" aria-labelledby="current-work-title">
+            <header className="current-work-header">
+              <p><i /> Currently building</p>
+              <span>Oracle · Current</span>
+            </header>
+
+            <div className="current-work-intro">
+              <p>Senior Member of Technical Staff</p>
+              <h2 id="current-work-title">Merino</h2>
+              <span>A Temporal-backed CI/CD platform that helps engineering teams build and deploy reliably.</span>
             </div>
-            <div className="terminal-content">
-              <p className="terminal-command"><b>$</b> profile --current</p>
-              <section className="terminal-role" aria-label="Current role">
-                <span>Senior Member of Technical Staff</span>
-                <strong>Oracle · Merino</strong>
-                <small>Temporal-backed CI/CD platform</small>
+
+            <div className="current-work-highlights">
+              <section>
+                <small>Workflow resilience</small>
+                <strong>Retry · Lock · Child workflows</strong>
+                <p>Recover failed stages, coordinate shared resources, and isolate complex execution.</p>
               </section>
-
-              <p className="terminal-command"><b>$</b> merino --capabilities</p>
-              <ul className="terminal-capabilities" aria-label="Merino capabilities">
-                <li><span>01</span>Failure recovery and stage retries</li>
-                <li><span>02</span>Resource locking and child workflows</li>
-              </ul>
-
-              <p className="terminal-command"><b>$</b> infrastructure --impact</p>
-              <section className="terminal-impact" aria-label="Infrastructure impact">
-                <strong>days <span>→</span> ~2 hours</strong>
-                <p>Regional OCI provisioning automated with Terraform</p>
+              <section>
+                <small>Infrastructure impact</small>
+                <strong>Several days <em>→</em> ~2 hours</strong>
+                <p>Regional OCI environments provisioned end to end with Terraform.</p>
               </section>
+            </div>
 
-              <div className="terminal-focus" aria-label="Engineering focus">
-                <span>Backend systems</span>
+            <footer className="current-work-footer">
+              <div aria-label="Current technology stack">
+                <span>Java</span>
                 <span>Temporal</span>
+                <span>Terraform</span>
                 <span>OCI</span>
-                <span>Developer platforms</span>
               </div>
-            </div>
-          </div>
+              <a href="#experience">View experience <span aria-hidden="true">→</span></a>
+            </footer>
+          </article>
         </section>
 
         <div className="content-grid">
